@@ -1,0 +1,90 @@
+asysc await >> promise chains >> callback hello
+
+synchronous :
+it means the code runs in a perticular sequence of instruction given in the program.
+each instruction waits for the previous instruction to complete its execution.
+
+Asynchronous :
+due to sync programming , sometimes imp instruction get blocked due to sme previous instruction, which cause a delay in the ui.
+asysc code execution allows to execute next instruction immediately and doesn't block the flow.
+
+
+function hello(){
+    console.log("hello")
+}
+setTimeout(hello,4000) // this is execute after 4 sec.
+
+callbacks : arguments to another function
+
+callback hell : nested callbacks stacked below one another formin a pyramid structure.
+(problem)
+
+example: Q: if we want to get data 1 , then data 2 after 2 sec , then data 3 after 2sec
+
+answer :
+
+function getData(dataId, getNextData){
+    //2sec
+    setTimeout(() = >{
+        console.log("data", dataId);
+        if (getNextData){
+            getNextData();
+        }
+    }, 2000);
+}
+
+getData(1, () = >{
+    getData(2, () =>{
+        getData(3)
+    });
+});
+
+
+////  Promises
+
+it is for " eventual" completion of task . it is an object in JS
+it is the solution of callback hell
+there are two callback function resolve , reject
+and there are 3 states.. pending,
+we use then & catch for promises.  .then() .catch() 
+
+///Asysc await
+
+asysc function all return a promise
+await pauses the execution of its surrounding asysc fuction untill the promise is settled.
+asysc fuction hello(){
+
+}
+
+
+fetch api: application programming interface
+
+the fetch api provides an interface for fetching (sending/receiving) resources
+
+it uses Request and responce objects.
+the fetch() method is used to fetch a resource(data).
+the fetch return promise
+
+
+example:
+
+const url = "https://cat-fact.herokuapp.com/facts";
+
+const getFacts =asysc() => {
+    console.log("getting data");
+    let responce =await fetch(url);
+    let data = await json.responce();
+
+
+}
+
+
+//understand format
+
+AJAX : Asynchronous JS & XML
+json : javascript object notation
+
+// Request & Responce
+
+HTTP: hyper text transfer protocol
+
