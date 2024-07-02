@@ -1,5 +1,5 @@
 const BASE_URL =
-  "https://api.fxratesapi.com/latest";
+  "https://api.fxratesapi.com/latested";
 
 const dropdowns = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button");
