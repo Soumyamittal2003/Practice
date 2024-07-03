@@ -1,3 +1,5 @@
+documentation : reactjs.org
+
 chapter 1 introduction :
  
 chapter 2 create a react app :
@@ -10,12 +12,26 @@ install node.js
 vs code setup
 
 2.2 create a react app
-> 1. official tool is CRA(create React  APP).
+> 1. official tool is CRA(create React APP).
   2. Vite is a modern tool to create React project.
      vite produces Quick and small bundle size
      vite  :Use npm (node package manager) run dev to launch dev server
+step 1 :
+1.npx create-react-app my-app 
 
-steps : 
+ npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+steps 2  : 
 1. npm create vite@latest
 2. Enter Project name
 3. choose framework( react)
