@@ -20,7 +20,7 @@ step 1 :
 1.npx create-react-app my-app 
 
  npm start
-    Starts the development server.
+    Starts the development server. 
 
   npm run build
     Bundles the app into static files for production.
@@ -54,6 +54,9 @@ JSX : javascript XML
 
 
 3.2 Class vs Function components
+
+in functional componet we can return only 1 tag 
+<> </>
 3.3 what is JSX
 jsx determine how the ui will look wherever the component is used. JSX gets converted to regular javascript. 
 tool : Babeljs.io/repl - see how jsx is transformed into javascript.
