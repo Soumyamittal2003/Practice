@@ -1,0 +1,88 @@
+piyush garg nodejs playlist
+
+1.what is node js ?
+
+Ryan Dahl inbits the javascript engine of goggle crom (V8) with c++ and called it as node.
+which results in executing js outside browser.
+node js is runtime envoirment for javascript.
+
+3.setup : run npm init 
+
+
+4.module in node :
+
+in a file there are many function which can be used in other file.
+so the function needs to be exported from source file & imported in destination file.
+
+exports : module.exports = { funct1,funct2,...}
+imports : const { funct1,funct2,...} = require(source) // require("./filename")
+
+5. File handling in node
+to handle all the file structure in node , we require a function , which is pre build in node.
+
+const fs = require("fs") // here fs is pre build function.
+
+create new file: 2 ways sync., async. 
+sync : fs.writeFileSync("source","content") // ("./test.txt","hello world");
+
+async : fs.writeFile("./test.txt","hello world", (err => {}) //aditionally callback function.
+
+read file : fs.readFileSync("source",enconding) //fs.readFileSync("./contacts.txt","utf-8")
+
+write file :
+delete file :
+see stats of file : fs.statSync(source)
+
+6. how the node JS work (architecture) :
+
+i) client make request to the server (made in node js)
+ii) all the request are queued in event queue.
+iii) there is another component : event loop which picks one by one from queue checks  wheteher it is a blocking operation or non blocking operation,.
+blocking operation : all the sync opertion are blocking. they are into thread pool .: thread/worker : assign the worker to it and work.
+non blocking operation : directly process it and return.
+
+7. building http web server :
+
+under the folder | npm init
+create a js file | index.js | in script add it
+
+const http = require("http")
+const myserver = http.createServer((req,res)=>{});
+
+//to run the server : we require the port
+
+myServer = http.listen(8000,()=> console.log("server started"))
+
+8. Handling URL in Server :
+npm install url
+const myQrl =url.parse(req.url,true);
+
+9. http method
+
+GET : when we want to get data from server
+POST : you want to send and mutate some data in server.
+
+PUT : upload 
+Patch : exiting data change
+delete : to delete data
+
+10. introduction to express JS
+
+installation : npm i express
+import : const express = require("express")
+        const app =express();
+
+11. Versioning 
+
+every version has 3 parts: 4.18.2
+
+3rd part : 2 i.e minor fixes (optional)
+2nd part : 18 i.e recommended Bug fix (security) 4.19.0
+
+12. REST API :
+
+Rest full api : api design by us accourding to  Rules : 
+
+1. always under server client architecture. data sending formats (html, image, json )
+
+2. Always follow http method : GET,POST,Patch,DELETE,PUT

@@ -81,3 +81,21 @@ using {} ,we can enabed any js expersion
 
 1. npm i bootstrap@5.3.3
 2. import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+5. react router component set up
+
+non vite: 
+1.npm install react-router-dom
+2. import from official
+3. use of link and to instead of <a> href
+
+6. deployment (on github pages) :
+
+for deployment : npm run build
+1.insert on package.json : "homepage":"https://soumyamittal2003.github.io/<reponame>
+2. npm install --save gh-pages
+3. add following on script in package.json:
+"predeploy":"npm run build",
+"deploy": "gh-pages -d build"
+4. run : npm run deploy
