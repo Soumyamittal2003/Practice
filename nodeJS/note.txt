@@ -1,5 +1,9 @@
 piyush garg nodejs playlist
 
+additional information : 
+
+1. nodemon : automatically start the server after changes : video 17 piyush garg
+
 1.what is node js ?
 
 Ryan Dahl inbits the javascript engine of goggle crom (V8) with c++ and called it as node.
@@ -86,3 +90,68 @@ Rest full api : api design by us accourding to  Rules :
 1. always under server client architecture. data sending formats (html, image, json )
 
 2. Always follow http method : GET,POST,Patch,DELETE,PUT
+
+13. BUILDing the REST API
+
+use mackaroo.com to get the data in require format.
+build the rest api in Rest_api_file.js
+
+14. postman
+
+15. Middleware:
+
+it is between request and funtion : which do some pre processing, validation, checking format.
+there can be many middleware between request and responce.
+there exiting express middleware & we can create our own middleware.
+code //
+app.use(express.urlencoded({extended:false})); //prebuid middleware
+
+app.use((req,res,next)=>{
+        console.log("heelo")
+        app.next()
+})
+
+
+16. HTTP Headers 
+
+Http headers are an importants parts of the api request and responce as they represent the meta data asssociated with the api request and response.
+headers carry information for the reqquest response body.
+we can send header from both end , request and responce.
+ 
+17. HTTP Status Code.
+it indicates whether a specic http requset hass been successfully completed.
+ 
+1.Informational responce (100-199)
+2. successful responses (200-299)
+3.redirectiondal messages (300-399)
+4.client error message (400-499)
+5. server error responce (500-599)
+
+
+18. MongoDb:
+
+19. Connecting NodeJs with MongoDb
+
+step 1 : mongo db is currently active/running
+step2 : instal package : npm i mongoose
+3.     : import : const mongoose = require("mongoose")
+4 create Schema & model : 
+
+//schema :
+const UserSchema = new mongoose.Schema({
+        firstName : {
+                type: String,
+                required : true,
+        },
+        lastName:{
+                type :String,
+        },
+        email:{
+                type: string,
+                required : true,
+                unique: true
+        }
+})
+
+//model
+const User = mongoose.model("user",UserSchema)
