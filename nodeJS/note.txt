@@ -132,7 +132,7 @@ it indicates whether a specic http requset hass been successfully completed.
 
 19. Connecting NodeJs with MongoDb
 
-step 1 : mongo db is currently active/running
+step 1 : mongo db is currently active/running - in terminal type mongosh
 step2 : instal package : npm i mongoose
 3.     : import : const mongoose = require("mongoose")
 4 create Schema & model : 

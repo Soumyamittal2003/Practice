@@ -1,6 +1,8 @@
 // creating express server
 const fs = require("fs") 
 const express = require("express");
+
+const mongoose =require("mongoose")
 const users = require('./MOCK_DATA.json'); //importing the datafile
 
 const app = express();

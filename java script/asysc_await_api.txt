@@ -48,6 +48,10 @@ there are two callback function resolve , reject
 and there are 3 states.. pending,
 we use then & catch for promises.  .then() .catch() 
 
+function getData(dataid){
+    
+}
+
 ///Asysc await
 
 asysc function all return a promise
