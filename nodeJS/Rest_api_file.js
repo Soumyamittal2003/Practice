@@ -2,15 +2,12 @@
 const fs = require("fs") 
 const express = require("express");
 
-const mongoose =require("mongoose")
+
 const users = require('./MOCK_DATA.json'); //importing the datafile
 
 const app = express();
 const PORT =8000;
 
-app.get("/",(req,res)=>{
-    return res.json(users);
-});
 
 //here the : in url represent dynamic value enter
 app.get("/api/users/:id",(req,res)=>{
