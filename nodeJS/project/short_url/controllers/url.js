@@ -15,7 +15,8 @@ async function handleGenerateNewShortUrl(req,res){
         visitHistory:[],
     });
 
-    return res.json({id:shortid});
+    //return res.json({id:shortid});
+    return res.render("home",{id:shortid})
 }
 
 // this function takes id from url match it from db , update the visitHistory & redirect to original url.

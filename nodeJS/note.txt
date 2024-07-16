@@ -161,3 +161,36 @@ const User = mongoose.model("user",UserSchema)
 20.Model view Controller 
 
 to write the code in industry standards 
+
+21. creating the custom url shortener : see it in project folder
+----------------------------------------------------------------------------------------------------------
+22. server side rendering :
+
+it the rendring of the entire html page from server.
+return res.end("<h1> hey there</h1>")
+
+now there is a huge problem to write the completer htl code within the return statement , and to solve this we have many templeting engine..
+
+1. ejs - embeded java script
+2. pugJS -
+3. handlerBAR
+
+to use EJS :
+
+installation : npm i ejs
+
+setup ejs with express : in index.js file : 
+1. app.set("view engine","ejs"); // this tell we are using ejs templete
+2. app.set("views",path.resolve("./views")); //this tells where are the ejs rendring fils are stored. 
+// import path : const path = require("path");
+
+now in view folder we create the ejs file (html files.)
+
+now to render it :
+
+return res.render('filename')
+
+to view more visit the commit -
+----------------------------------------------------------------------------------------------------------
+
+
