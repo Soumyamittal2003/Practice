@@ -224,3 +224,19 @@ As we are using cookies we need to install the npm pakage : npm i cookie-parser
 
 then create a middleware -which checks login then call next function
 see it in commit "Authentication done"
+
+
+24: jwt Authentication :
+
+stateless : as there was a big draw back in statefull Authentication , the server restart - & the records stored are deleted,
+then we use stateless Authentication where the session id are stored in token only.
+
+and to usee we need to install jwt : (json web token)
+
+npm i jsonwebtoken
+file change :service/auth.js
+see it in commit "jwt stateless Authentication"
+
+
+token are used for long duration Authentication
+session id are used in banking website.

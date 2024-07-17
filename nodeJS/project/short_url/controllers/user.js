@@ -20,9 +20,9 @@ async function handleUserLogin(req,res){
     if(!user){
         return res.render("login.ejs",{error:"invaild Username or Password"})
     }
-    const sessionid =uuidv4() //it generate the unique id
-    setUser(sessionid,user); //dairy to store session id
-    res.cookie("uid",sessionid); //create a cookie after successful login whose name is uid and value is sessionid
+    
+    const token =setUser(user); //create token
+    res.cookie("uid",token); //create a cookie after successful login whose name is uid and value is token value
 
     return res.redirect("/");
 }
