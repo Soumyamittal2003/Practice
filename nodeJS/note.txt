@@ -194,3 +194,22 @@ to view more visit the commit -
 ----------------------------------------------------------------------------------------------------------
 
 
+23. Authentication :
+
+there are two types of Authentication patterns - statefull ( which maintains state or data or server side), stateless(which has no state)
+
+statefull : functioning :
+
+client request to server with username/password in return the server gives the uid(unique id to the client) & also maintain the track record within itself.
+the uid can be provided to client in cookies , response or in headers 
+
+while sending any request to server the client need to send the uid with request , then the server matchs the uid & check the permission to request made.
+
+how to design :
+
+express flow :
+client > auth middleware { checks for cookies value or uid, if valid calls the next() else rejects the request.}
+
+steps :
+we create a login page , signup page and after successful we redirect to home page.
+till here see it in commit "Authentication before cookies"

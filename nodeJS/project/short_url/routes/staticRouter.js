@@ -11,4 +11,13 @@ router.get("/", async (req,res)=>{
 });
 
 
+router.get("/Signup", async (req,res)=>{
+    return res.render("signup.ejs");
+
+});
+
+router.get("/login", async (req,res)=>{
+    return res.render("login.ejs");
+
+});
 module.exports=router;
