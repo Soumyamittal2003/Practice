@@ -14,7 +14,8 @@ connectMongoDb("mongodb://127.0.0.1:27017/soumya-database")
 
 
 //middleware -plugin
-app.use(express.urlencoded({extended:false})); 
+app.use(express.urlencoded({extended:false}));
+
 
 //Routes
 app.use("/users", userRouter)

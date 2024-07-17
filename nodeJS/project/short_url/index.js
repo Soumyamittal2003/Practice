@@ -1,7 +1,10 @@
+//import
+
 const express = require("express");
 const path = require("path");
 const {connectMongoDb}=require("./connection")
-
+const cookieParser =require("cookie-parser")
+const { restrictToLoggedinUserOnly, checkauth } =require("./middleware/auth")
 
 //routes
 const UrlRouter = require("./routes/url")
@@ -24,10 +27,13 @@ app.set("views",path.resolve("./views"))
 //middleware
 app.use(express.urlencoded({extended:false})); 
 app.use(express.json());
+app.use(cookieParser());
+
+
 
 //Routes
-app.use("/url", UrlRouter)
-app.use("/", StaticRoutes)
+app.use("/url",restrictToLoggedinUserOnly, UrlRouter)
+app.use("/",checkauth,StaticRoutes)
 app.use("/user",userRoute)
 
 

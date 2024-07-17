@@ -13,6 +13,7 @@ async function handleGenerateNewShortUrl(req,res){
         shortId : shortid ,
         redirecturl : body.url,
         visitHistory:[],
+        createdBy:req.user._id
     });
 
     //return res.json({id:shortid});

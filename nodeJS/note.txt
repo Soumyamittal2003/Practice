@@ -213,3 +213,14 @@ client > auth middleware { checks for cookies value or uid, if valid calls the n
 steps :
 we create a login page , signup page and after successful we redirect to home page.
 till here see it in commit "Authentication before cookies"
+
+now for generating the session id after login is done : we install a npm package uuid.
+npm i uuid
+import : const {v4 :uuidv4} =require("uuid")
+
+we store the data of sessionid in auth.js file
+we create a cookie after successful login
+As we are using cookies we need to install the npm pakage : npm i cookie-parser
+
+then create a middleware -which checks login then call next function
+see it in commit "Authentication done"
