@@ -4,6 +4,12 @@ additional information :
 
 1. nodemon : automatically start the server after changes : video 17 piyush garg
 
+2. In ejs files we want to use the same component again then we can import from another file by <%- include('path of ejs file') %>
+
+
+
+
+
 1.what is node js ?
 
 Ryan Dahl inbits the javascript engine of goggle crom (V8) with c++ and called it as node.
@@ -240,3 +246,58 @@ see it in commit "jwt stateless Authentication"
 
 token are used for long duration Authentication
 session id are used in banking website.
+
+
+25 cookies :
+
+architecture of Authentication:
+whie accessing with server the client pass user id &password , we verify with the database and generate the token with id , email .
+
+there are two ways to send it to user : cookie or responce
+
+by cookie : we generate the cookie and insert the token value as cookie value. 
+while re access the cookie is automatically send by browser , we check the cookie & tokken value and verify token.
+
+about cookies : 
+cookies are domain specific , we can also set domain, expiry date.
+
+by token : we send the token with responce.json {token};
+
+but there is problem cookie are automatically end by broser , but responce can't be 
+
+getting tokken : we access the token thorugh headers
+
+authorization header : also known as brearer token
+
+//example : "bearer jsgjfgdifkngkdjg514521ee"
+
+26 Authorization :
+
+understading authorization & Authentication 
+
+Authentication is the correct person to use the resource , authorization is related to access the resources .
+example : in a website ther is user who has the menbership id . the user is Authenticated with member id 
+but the user is not authorized to access all the resourses (like admin has)
+
+
+27. discord bot creation :
+to be learn from different source
+
+28. file upload :
+using multer npm pakaage , read the documentation and apply 
+
+
+33. websockets :
+
+traditionally, while communicating with servers, client send the request & after that it get responce, it is not live 
+if server want to send some inforamation , it can't be ssend without request.
+while creating the live real time projects ,like chat box , every user need to request server on every sec, to be updated , it increases the load on the server. which is not appropiate.
+
+to solve this , we have websockets , initailly , we send the http request with addionally the headers to wS. commanding the server to upgraded this request to websockets.
+now it is 2 way connection.
+
+defination : websockets is a computer communication protocol providingg full duplex commnication channels over a single tcp/ip protocol.
+
+for implemwenting the websocket into nodejs , we have socket.io package
+
+
