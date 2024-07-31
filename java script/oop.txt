@@ -1,0 +1,80 @@
+Object oriendted programming
+
+1. object : ex : 
+
+const student = {
+    fullname : "soumya mittal ",
+    marks : "98",
+    printMarks: function () {
+        console.log("marks=", this.marks);
+    }
+}
+
+//Prototype in JS
+
+A javascript object is an entity havong state and behavoiur (propertices and method).
+JS objects have a special property called prototype.
+we can set prototype using __proto__
+we can create our own prototype
+
+like if we want to use printMarks of student object in different object
+student2.__proto__=student;
+
+
+
+2. Classes in JS
+
+class is a program code templete for creating object.
+those object will have some state (varible) & some behavoiur (function) inside it.
+
+class ToyotaCar {
+    start(){
+        console.log("start")
+    }
+
+    stop() {
+        console.log ("stop");
+
+    }
+}
+
+//create object with class
+let fortuner = new ToyotaCar();
+this will have all function that are in toyota car.
+
+// consturtor : special method(function ) that is automatically invoked new
+                it initializes objects.
+
+
+// Inheritance : it is passing down propertics &method from parent class to child class
+
+    class parent {
+        print(){
+            console.log("hello");
+        }
+    }
+
+    class Child extends parent{
+
+    }
+creating the object in from child class
+
+let soumya = new Child();
+//so here object soumya will have all methods of parent class
+
+method overridding : if child & parent class have same method by name , then child class method will be execute
+
+super Keyword : the super keyword is used to call the consturtor of its parent class to acess the parent's properties and method
+                this keyword is also used to define function of function from parent class to child class.
+                like 
+                class parent {
+                    func1(){
+
+                    }
+                }
+                class child extends parent{
+                    func2(){
+                        func1() // this will be wrong
+                        super.funct1();
+                    }
+                }

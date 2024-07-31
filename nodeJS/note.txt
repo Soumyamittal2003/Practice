@@ -1,0 +1,303 @@
+piyush garg nodejs playlist
+
+additional information : 
+
+1. nodemon : automatically start the server after changes : video 17 piyush garg
+
+2. In ejs files we want to use the same component again then we can import from another file by <%- include('path of ejs file') %>
+
+
+
+
+
+1.what is node js ?
+
+Ryan Dahl inbits the javascript engine of goggle crom (V8) with c++ and called it as node.
+which results in executing js outside browser.
+node js is runtime envoirment for javascript.
+
+3.setup : run npm init 
+
+
+4.module in node :
+
+in a file there are many function which can be used in other file.
+so the function needs to be exported from source file & imported in destination file.
+
+exports : module.exports = { funct1,funct2,...}
+imports : const { funct1,funct2,...} = require(source) // require("./filename")
+
+5. File handling in node
+to handle all the file structure in node , we require a function , which is pre build in node.
+
+const fs = require("fs") // here fs is pre build function.
+
+create new file: 2 ways sync., async. 
+sync : fs.writeFileSync("source","content") // ("./test.txt","hello world");
+
+async : fs.writeFile("./test.txt","hello world", (err => {}) //aditionally callback function.
+
+read file : fs.readFileSync("source",enconding) //fs.readFileSync("./contacts.txt","utf-8")
+
+write file :
+delete file :
+see stats of file : fs.statSync(source)
+
+6. how the node JS work (architecture) :
+
+i) client make request to the server (made in node js)
+ii) all the request are queued in event queue.
+iii) there is another component : event loop which picks one by one from queue checks  wheteher it is a blocking operation or non blocking operation,.
+blocking operation : all the sync opertion are blocking. they are into thread pool .: thread/worker : assign the worker to it and work.
+non blocking operation : directly process it and return.
+
+7. building http web server :
+
+under the folder | npm init
+create a js file | index.js | in script add it
+
+const http = require("http")
+const myserver = http.createServer((req,res)=>{});
+
+//to run the server : we require the port
+
+myServer = http.listen(8000,()=> console.log("server started"))
+
+8. Handling URL in Server :
+npm install url
+const myQrl =url.parse(req.url,true);
+
+9. http method
+
+GET : when we want to get data from server
+POST : you want to send and mutate some data in server.
+
+PUT : upload 
+Patch : exiting data change
+delete : to delete data
+
+10. introduction to express JS
+
+installation : npm i express
+import : const express = require("express")
+        const app =express();
+
+11. Versioning 
+
+every version has 3 parts: 4.18.2
+
+3rd part : 2 i.e minor fixes (optional)
+2nd part : 18 i.e recommended Bug fix (security) 4.19.0
+
+12. REST API :
+
+Rest full api : api design by us accourding to  Rules : 
+
+1. always under server client architecture. data sending formats (html, image, json )
+
+2. Always follow http method : GET,POST,Patch,DELETE,PUT
+
+13. BUILDing the REST API
+
+use mackaroo.com to get the data in require format.
+build the rest api in Rest_api_file.js
+
+14. postman
+
+15. Middleware:
+
+it is between request and funtion : which do some pre processing, validation, checking format.
+there can be many middleware between request and responce.
+there exiting express middleware & we can create our own middleware.
+code //
+app.use(express.urlencoded({extended:false})); //prebuid middleware
+
+app.use((req,res,next)=>{
+        console.log("heelo")
+        app.next()
+})
+
+
+16. HTTP Headers 
+
+Http headers are an importants parts of the api request and responce as they represent the meta data asssociated with the api request and response.
+headers carry information for the reqquest response body.
+we can send header from both end , request and responce.
+ 
+17. HTTP Status Code.
+it indicates whether a specic http requset hass been successfully completed.
+ 
+1.Informational responce (100-199)
+2. successful responses (200-299)
+3.redirectiondal messages (300-399)
+4.client error message (400-499)
+5. server error responce (500-599)
+
+
+18. MongoDb:
+
+19. Connecting NodeJs with MongoDb
+
+step 1 : mongo db is currently active/running - in terminal type mongosh
+step2 : instal package : npm i mongoose
+3.     : import : const mongoose = require("mongoose")
+4 create Schema & model : 
+
+//schema :
+const UserSchema = new mongoose.Schema({
+        firstName : {
+                type: String,
+                required : true,
+        },
+        lastName:{
+                type :String,
+        },
+        email:{
+                type: string,
+                required : true,
+                unique: true
+        }
+})
+
+//model
+const User = mongoose.model("user",UserSchema)
+
+//more code availble at Connecting_mongo
+
+20.Model view Controller 
+
+to write the code in industry standards 
+
+21. creating the custom url shortener : see it in project folder
+----------------------------------------------------------------------------------------------------------
+22. server side rendering :
+
+it the rendring of the entire html page from server.
+return res.end("<h1> hey there</h1>")
+
+now there is a huge problem to write the completer htl code within the return statement , and to solve this we have many templeting engine..
+
+1. ejs - embeded java script
+2. pugJS -
+3. handlerBAR
+
+to use EJS :
+
+installation : npm i ejs
+
+setup ejs with express : in index.js file : 
+1. app.set("view engine","ejs"); // this tell we are using ejs templete
+2. app.set("views",path.resolve("./views")); //this tells where are the ejs rendring fils are stored. 
+// import path : const path = require("path");
+
+now in view folder we create the ejs file (html files.)
+
+now to render it :
+
+return res.render('filename')
+
+to view more visit the commit -
+----------------------------------------------------------------------------------------------------------
+
+
+23. Authentication :
+
+there are two types of Authentication patterns - statefull ( which maintains state or data or server side), stateless(which has no state)
+
+statefull : functioning :
+
+client request to server with username/password in return the server gives the uid(unique id to the client) & also maintain the track record within itself.
+the uid can be provided to client in cookies , response or in headers 
+
+while sending any request to server the client need to send the uid with request , then the server matchs the uid & check the permission to request made.
+
+how to design :
+
+express flow :
+client > auth middleware { checks for cookies value or uid, if valid calls the next() else rejects the request.}
+
+steps :
+we create a login page , signup page and after successful we redirect to home page.
+till here see it in commit "Authentication before cookies"
+
+now for generating the session id after login is done : we install a npm package uuid.
+npm i uuid
+import : const {v4 :uuidv4} =require("uuid")
+
+we store the data of sessionid in auth.js file
+we create a cookie after successful login
+As we are using cookies we need to install the npm pakage : npm i cookie-parser
+
+then create a middleware -which checks login then call next function
+see it in commit "Authentication done"
+
+
+24: jwt Authentication :
+
+stateless : as there was a big draw back in statefull Authentication , the server restart - & the records stored are deleted,
+then we use stateless Authentication where the session id are stored in token only.
+
+and to usee we need to install jwt : (json web token)
+
+npm i jsonwebtoken
+file change :service/auth.js
+see it in commit "jwt stateless Authentication"
+
+
+token are used for long duration Authentication
+session id are used in banking website.
+
+
+25 cookies :
+
+architecture of Authentication:
+whie accessing with server the client pass user id &password , we verify with the database and generate the token with id , email .
+
+there are two ways to send it to user : cookie or responce
+
+by cookie : we generate the cookie and insert the token value as cookie value. 
+while re access the cookie is automatically send by browser , we check the cookie & tokken value and verify token.
+
+about cookies : 
+cookies are domain specific , we can also set domain, expiry date.
+
+by token : we send the token with responce.json {token};
+
+but there is problem cookie are automatically end by broser , but responce can't be 
+
+getting tokken : we access the token thorugh headers
+
+authorization header : also known as brearer token
+
+//example : "bearer jsgjfgdifkngkdjg514521ee"
+
+26 Authorization :
+
+understading authorization & Authentication 
+
+Authentication is the correct person to use the resource , authorization is related to access the resources .
+example : in a website ther is user who has the menbership id . the user is Authenticated with member id 
+but the user is not authorized to access all the resourses (like admin has)
+
+
+27. discord bot creation :
+to be learn from different source
+
+28. file upload :
+using multer npm pakaage , read the documentation and apply 
+
+
+33. websockets :
+
+traditionally, while communicating with servers, client send the request & after that it get responce, it is not live 
+if server want to send some inforamation , it can't be ssend without request.
+while creating the live real time projects ,like chat box , every user need to request server on every sec, to be updated , it increases the load on the server. which is not appropiate.
+
+to solve this , we have websockets , initailly , we send the http request with addionally the headers to wS. commanding the server to upgraded this request to websockets.
+now it is 2 way connection.
+
+defination : websockets is a computer communication protocol providingg full duplex commnication channels over a single tcp/ip protocol.
+
+for implemwenting the websocket into nodejs , we have socket.io package
+
+

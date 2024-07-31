@@ -1,0 +1,13 @@
+Engineering digest video..
+
+1. what is mongodb
+
+it is nosql database,
+mongodb stores data in flexible,JSON-like documents.
+the document model maps to the object in your application code,making data easy to work with.
+mongodb is a distributed database at its core.
+in mongo db there are less relation.
+BSON : 
+database , collection, documentation
+
+2.installation & run : open mongo sh from this pc/c:

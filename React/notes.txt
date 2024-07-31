@@ -1,0 +1,102 @@
+documentation : reactjs.org
+
+chapter 1 introduction :
+ 
+chapter 2 create a react app :
+
+
+ *2.1 setup IDE
+
+integrated development enviroment , software suits, central hub for coding, error checking , testing
+
+install node.js
+vs code setup
+
+2.2 create a react app
+> 1. official tool is CRA(create React APP).
+  2. Vite is a modern tool to create React project.
+     vite produces Quick and small bundle size
+     vite  :Use npm (node package manager) run dev to launch dev server
+step 1 :
+1.npx create-react-app my-app 
+
+ npm start
+    Starts the development server. 
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+steps 2  : 
+1. npm create vite@latest
+2. Enter Project name
+3. choose framework( react)
+4. choose language
+5. cd <projectname>
+6. npm install
+7. npm run dev
+
+2.3 project structure
+
+
+Chapter 3 creating React component (3.7)
+
+3.1 File Extension
+
+JS : javascript
+    contains regular js code
+JSX : javascript XML
+     combine javascript with html like tag
+
+
+3.2 Class vs Function components
+
+in functional componet we can return only 1 tag 
+<> </>
+3.3 what is JSX
+jsx determine how the ui will look wherever the component is used. JSX gets converted to regular javascript. 
+tool : Babeljs.io/repl - see how jsx is transformed into javascript.
+
+3.4 Exporting components
+. we can write export default before fuction defination.
+. Named export : 
+export function button() {
+
+}
+in importing will we write : import {button} from "./filename";
+
+3.5  other points
+3.6 Dynamic components
+
+JSX allows the creation of dynamic &interactive UI components 
+using {} ,we can enabed any js expersion
+
+3.7 Reusable components
+
+4. Bootstrap
+
+1. npm i bootstrap@5.3.3
+2. import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+5. react router component set up
+
+non vite: 
+1.npm install react-router-dom
+2. import from official
+3. use of link and to instead of <a> href
+
+6. deployment (on github pages) :
+
+for deployment : npm run build
+1.insert on package.json : "homepage":"https://soumyamittal2003.github.io/<reponame>
+2. npm install --save gh-pages
+3. add following on script in package.json:
+"predeploy":"npm run build",
+"deploy": "gh-pages -d build"
+4. run : npm run deploy
