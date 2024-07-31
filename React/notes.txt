@@ -4,7 +4,8 @@ chapter 1 introduction :
  
 chapter 2 create a react app :
 
-2.1 setup IDE
+
+ *2.1 setup IDE
 
 integrated development enviroment , software suits, central hub for coding, error checking , testing
 
